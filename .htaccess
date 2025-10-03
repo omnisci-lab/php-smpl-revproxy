@@ -1,0 +1,14 @@
+# .htaccess (put in DocumentRoot)
+RewriteEngine On
+RewriteBase /
+
+# Rewrite root "/" to proxy.php
+RewriteRule ^$ proxy.php?path= [QSA,L]
+
+# If request maps to real file/dir => serve it
+RewriteCond %{REQUEST_FILENAME} -f [OR]
+RewriteCond %{REQUEST_FILENAME} -d
+RewriteRule ^ - [L]
+
+# Otherwise forward everything to proxy.php
+RewriteRule ^(.*)$ proxy.php?path=$1 [QSA,L]
