@@ -6,4 +6,8 @@ return [
     'TIMEOUT' => 30,
     'VERIFY_SSL' => true,
     'REWRITE_BODY' => true,
+    'CUSTOM_HEADERS' => [
+        'key' => 'value'
+    ],
+    'DEBUG' => false
 ];
